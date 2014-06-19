@@ -1,0 +1,89 @@
+// Mixins and functions from Compass
+// Mixins
+@mixin adjust-font-size-to($to-size, $lines: lines-for-font-size($to-size), $from-size: $base-font-size) {
+    font-size: 1em * $to-size / $from-size;
+    line-height: rhythm($lines, $to-size);
+}
+
+@mixin background-image($image) {
+    background-image: #{-webkit-}#{$image};
+    background-image: #{-moz-}#{$image};
+    background-image: #{-o-}#{$image};
+    background-image: #{-ms-}#{$image};
+    background-image: $image;
+}
+
+@mixin clearfix {
+    overflow: hidden;
+
+    @if $legacy-support-for-ie7 {
+        *zoom: 1;
+    }
+}
+
+@mixin filter-gradient($start-color, $end-color, $orientation: vertical) {
+    $gradient-type: if($orientation == vertical, 0, 1);
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=#{$gradient-type}, startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}');
+
+    @if $legacy-support-for-ie7 {
+        *zoom: 1;
+    }
+}
+
+@mixin inline-block($alignment: middle) {
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: $alignment;
+
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+}
+
+@mixin opacity($opacity) {
+    @if $ie {
+        filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
+    }
+    opacity: $opacity;
+}
+
+@mixin experimental($property, $value, $moz: true, $webkit: true, $o: true, $ms: true, $khtml: false, $official: true) {
+    $value: unquote($value);
+    @if $webkit {
+        -webkit-#{$property}: $value;
+    }
+    @if $khtml {
+        -khtml-#{$property}: $value;
+    }
+    @if $moz {
+        -moz-#{$property}: $value;
+    }
+    @if $ms {
+        -ms-#{$property}: $value;
+    }
+    @if $o {
+        -o-#{$property}: $value;
+    }
+    @if $official {
+        #{$property}: $value;
+    }
+}
+
+
+// Functions
+@function lines-for-font-size($font-size) {
+    $lines: ceil($font-size / $base-line-height);
+    @if $lines * $base-line-height - $font-size < 2px * 2 {
+        $lines: $lines + 1;
+    }
+    @return $lines;
+}
+
+@function rhythm($lines: 1, $font-size: $base-font-size, $offset: 0) {
+    $rhythm: 1em * ($lines * $base-line-height - $offset) / $font-size;
+    // Round the pixels down to nearest integer.
+    @if unit($rhythm) == px {
+        $rhythm: floor($rhythm);
+    }
+    @return $rhythm;
+}

@@ -1,0 +1,31 @@
+{
+    "letters": [
+        { "content": "a", "selected": true},
+        { "content": "b"},
+        { "content": "c"},
+        { "content": "d"},
+        { "content": "e"},
+        { "content": "f"},
+        { "content": "g"},
+        { "content": "h"},
+        { "content": "i"},
+        { "content": "j"},
+        { "content": "k"},
+        { "content": "l"},
+        { "content": "m"},
+        { "content": "n"},
+        { "content": "o"},
+        { "content": "p"},
+        { "content": "q"},
+        { "content": "r"},
+        { "content": "s"},
+        { "content": "t"},
+        { "content": "u"},
+        { "content": "v"},
+        { "content": "w"},
+        { "content": "x"},
+        { "content": "y"},
+        { "content": "z"},
+        { "content": "0-9", "class": "numerals"}
+    ]
+}

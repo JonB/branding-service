@@ -1,0 +1,7 @@
+{{# selected }}
+<p class="letter-button selected">{{ content }}</p>
+{{/ selected}}
+
+{{^ selected }}
+<a class="letter-button {{ class }}" href="{{ href }}">{{ content }}</a>
+{{/ selected }}

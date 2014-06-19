@@ -1,0 +1,74 @@
+@import "colors";
+
+@import "components/letter-button/styles";
+@import "utils/breakpoints";
+
+.letter-list {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+    width: 976px;
+    li {
+        float: left;
+        border-right: 8px solid $letter-list-border-color;
+        border-bottom: 8px solid $letter-list-border-color;
+
+        &.numerals {
+            border-right: none;
+            .letter-button {
+                width: 132px;
+                @include bp-lte(3) {
+                    width: 132px;
+                }
+            }
+        }
+    }
+    @include bp(4) {
+        li.n {
+            border-right: none;
+            .letter-button {
+                width: 66px;
+            }
+        }
+        li.numerals {
+            .letter-button {
+                width: 136px;
+            }
+        }
+    }
+    @include bp-lte(3) {
+        li {
+            .letter-button {
+                width: auto;
+            }
+             &.numerals {
+                .letter-button {
+                    width: auto;
+                }
+            }
+        }
+    }
+    @include bp(3) {
+        li {
+            width: 9.6%;
+        }
+    }
+    @include bp(2) {
+        li {
+            width: 12%;
+            &.numerals {
+                width: 26%;
+            }
+        }
+    }
+    @include bp(1) {
+        li {
+            width: 11%;
+            &.numerals {
+                width: 24%;
+            }
+        }
+    }
+}

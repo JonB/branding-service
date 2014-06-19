@@ -1,0 +1,101 @@
+$ie: false;
+$breakpoint1-max-value: 400px;
+$breakpoint2-max-value: 600px;
+$breakpoint3-max-value: 1008px;
+// 32px is the gutters either side
+$breakpoint4-content-width: $breakpoint3-max-value - 32px;
+
+$breakpoint1: 'only screen and (max-width:#{$breakpoint1-max-value - 1})';
+$breakpoint2: 'only screen and (min-width:#{$breakpoint1-max-value}) and (max-width:#{$breakpoint2-max-value - 1} )';
+$breakpoint3: 'only screen and (min-width:#{$breakpoint2-max-value}) and (max-width:#{$breakpoint3-max-value - 1})';
+$breakpoint4: 'only screen and (min-width:#{$breakpoint3-max-value})';
+
+$breakpoint2-gte: 'only screen and (min-width:#{$breakpoint1-max-value})';
+$breakpoint3-gte: 'only screen and (min-width:#{$breakpoint2-max-value})';
+
+$breakpoint1-lte: 'only screen and (max-width:#{$breakpoint1-max-value - 1})';
+$breakpoint2-lte: 'only screen and (max-width:#{$breakpoint2-max-value - 1})';
+$breakpoint3-lte: 'only screen and (max-width:#{$breakpoint3-max-value - 1})';
+
+
+@mixin bp($breakpoint) {
+    @if $breakpoint == 1 and $ie == false {
+        @media #{$breakpoint1} { @content; }
+    }
+
+    @if $breakpoint == 2 and $ie == false {
+        @media #{$breakpoint2} { @content; }
+    }
+
+    @if $breakpoint == 3 and $ie == false {
+        @media #{$breakpoint3} { @content; }
+    }
+
+    @if $breakpoint == 4 {
+        @if $ie == false {
+            @media #{$breakpoint4} { @content; }
+        }
+        @else {
+            @content;
+        }
+    }
+}
+
+@mixin bp-gte($breakpoint) {
+
+    @if $breakpoint == 2 {
+        @if $ie == false {
+            @media #{$breakpoint2-gte} { @content; }
+        }
+        @else {
+            @content;
+        }
+    }
+
+    @if $breakpoint == 3 {
+        @if $ie == false {
+            @media #{$breakpoint3-gte} { @content; }
+        }
+        @else {
+            @content;
+        }
+    }
+}
+
+@mixin bp-lte($breakpoint) {
+    @if $breakpoint == 1 {
+        @if $ie == false {
+            @media #{$breakpoint1-lte} { @content; }
+        }
+    }
+
+    @if $breakpoint == 2 {
+        @if $ie == false {
+            @media #{$breakpoint2-lte} { @content; }
+        }
+    }
+
+    @if $breakpoint == 3 {
+        @if $ie == false {
+            @media #{$breakpoint3-lte} { @content; }
+        }
+    }
+}
+
+@mixin shown-from-breakpoint-3 {
+    display: none;
+    @include bp-gte(3) { display: block; }
+}
+
+@mixin hidden-from-breakpoint-3 {
+    @include bp-gte(3) { display: none; }
+}
+
+@mixin shown-on-breakpoint-4 {
+    display: none;
+    @include bp(4) { display: block; }
+}
+
+@mixin hidden-on-breakpoint-4 {
+    @include bp(4) { display: none; }
+}

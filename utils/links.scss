@@ -1,0 +1,34 @@
+%link {
+    text-decoration: none;
+}
+
+@mixin linkVisited {
+    &:link,
+    &:visited {
+        @content;
+    }
+}
+
+@mixin hoverActiveFocus {
+    &:focus,
+    &:hover,
+    &:active {
+        @content;
+    }
+}
+
+@mixin touch {
+    body.touch & {
+        @content;
+    }
+}
+
+@mixin wp8 {
+    body.wp8 & {
+        @content;
+    }
+}
+
+@mixin animateColor {
+    @include experimental(transition, 'color 0.2s ease-out', -moz, -webkit, -o, not -ms, not -khtml, official);
+}

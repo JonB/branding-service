@@ -1,0 +1,26 @@
+{
+  "name": "iplayer-branding",
+  "version": "0.1.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/middric/iplayer-branding.git"
+  },
+  "author": "Rich Middleditch <richmiddleditch@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/middric/iplayer-branding/issues"
+  },
+  "homepage": "https://github.com/middric/iplayer-branding",
+  "dependencies": {
+    "restify": "*",
+    "node-sass": "*",
+    "mustache": "*",
+    "gm": "*",
+    "mem-cache": "*"
+  }
+}

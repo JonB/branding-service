@@ -1,0 +1,34 @@
+@import "colors";
+
+@import "utils/links";
+@import "utils/compass";
+@import "utils/fonts";
+
+.letter-button {
+    @extend %link;
+
+    width: 62px;
+    height: auto;
+    margin: 0;
+    padding: 6px 0 7px;
+    text-align: center;
+    display: block;
+    color: $letter-list-color;
+    background-color: $letter-list-background-color;
+    text-transform: uppercase;
+    @include adjust-font-size-to(14px);
+    line-height: 25px;
+    font-weight: bold;
+
+    &.selected {
+        background-color: $letter-list-background-color-selected;
+        color: $letter-list-color-selected;
+    }
+}
+a.letter-button {
+    @include hoverActiveFocus {
+        background-color: $letter-list-background-color-hover;
+        color: $letter-list-color-hover;
+        @include experimental(transition, 'background-color 0.1s ease, color 0.1s ease');
+    }
+}
