@@ -1,0 +1,18 @@
+{
+    "name": "middric/branding-service",
+    "description": "",
+    "license": "proprietary",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/middric/branding-service.git"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "3.*"
+    },
+    "config": {
+        "vendor-dir": "php-client/vendor",
+        "github-protocols": ["https"]
+    }
+}
