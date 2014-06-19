@@ -12,7 +12,6 @@
         "guzzlehttp/guzzle": "3.*"
     },
     "config": {
-        "vendor-dir": "php-client/vendor",
         "github-protocols": ["https"]
     }
 }
