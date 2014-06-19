@@ -1,3 +1,5 @@
+@import "fonts";
+
 // Mixins and functions from Compass
 // Mixins
 @mixin adjust-font-size-to($to-size, $lines: lines-for-font-size($to-size), $from-size: $base-font-size) {

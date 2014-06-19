@@ -1,0 +1,30 @@
+@import "colors";
+
+@import "utils/breakpoints";
+@import "utils/compass";
+
+.error-container {
+    .error-inner {
+        background-color: $error-state-container-background;
+        text-align: center;
+        padding: 32px 64px;
+        @include inline-block;
+        @include adjust-font-size-to(14px, 1.2);
+        @include bp(4) {
+            @include adjust-font-size-to(16px, 1.2);
+        }
+    }
+
+    .error-message {
+        color: $error-state-message-color;
+        margin: 0;
+        margin-bottom: 16px;
+        padding: 0;
+    }
+
+    .error-action {
+        color: $error-state-action-color;
+        margin: 0;
+        padding: 0;
+    }
+}

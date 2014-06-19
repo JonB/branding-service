@@ -9,11 +9,12 @@ var restify = require('restify'),
 fs.mkdir('./images/cache', function () {});
 
 server.use(restify.queryParser());
+server.use(restify.bodyParser());
 server.use(restify.jsonp());
 server.use(restify.gzipResponse());
 
-fs.readdirSync("./routes").forEach(function(file) {
-  require("./routes/" + file).initialise(server);
+fs.readdirSync("./src/routes").forEach(function(file) {
+  require("./src/routes/" + file).initialise(server);
 });
 
 server.listen(8080, function () {
