@@ -71,7 +71,7 @@ exports.initialise = function(server) {
                 css.push(renderSass(components[i], {theme: req.params.theme}));
                 markup.push(
                     '<h2 class="branding-service">' +
-                    '<a href="' + server.router.render('component', {component: components[i]}) + '">' +
+                    '<a href="' + server.router.render('component', {component: components[i]}) + '?theme=' + (req.params.theme || 'iplayer') + '">' +
                     components[i].charAt(0).toUpperCase() + components[i].replace('-', ' ').slice(1) +
                     '</a></h2>' +
                     '<div class="branding-service-wrapper">' + renderMustache(components[i], req.query) + '</div>'
@@ -100,7 +100,7 @@ exports.initialise = function(server) {
                 fs.readFileSync('./src/index.mustache').toString(),
                 {
                     content: '<h2 class="branding-service">' +
-                        '<a href="' + server.router.render('component', {component: req.params.component}) + '">' +
+                        '<a href="' + server.router.render('component', {component: req.params.component}) + '?theme=' + (req.params.theme || 'iplayer') + '">' +
                         req.params.component.charAt(0).toUpperCase() + req.params.component.replace('-', ' ').slice(1) +
                         '</a></h2>' +
                         '<div class="branding-service-wrapper">' + markup + '</div>',
