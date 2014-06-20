@@ -1,7 +1,21 @@
+.branding-service-wrapper {
+    background-color: #9c0000 ;
+    padding: 16px;
+}
+
 $letter-list-color: white;
-$letter-list-background-color: #3B3B3B;
+$letter-list-background-color: rgba(0,0,0,0.5);
 $letter-list-background-color-selected: #bf1300;
 $letter-list-color-selected: white;
 $letter-list-color-hover: black;
 $letter-list-background-color-hover: white;
 $letter-list-border-color: transparent;
+
+$programme-list-border-color: #bf1300;
+$programme-list-primary-color: #ffffff;
+$programme-list-link-hover-color: #ffffff;
+$programme-list-title-play-icon-color: #ffffff;
+
+$error-state-container-background: rgba(0, 0, 0, 0.7);
+$error-state-action-color: #BDBDBD;
+$error-state-message-color: white;

@@ -1,0 +1,47 @@
+@import "colors";
+@import "utils/compass";
+@import "utils/links";
+@import "utils/breakpoints";
+@import "utils/icons";
+
+.tleo-link {
+    color: $programme-list-primary-color;
+    position: relative;
+    display: block;
+    border-top: 1px solid $programme-list-border-color;
+    padding-top: 7px;
+    padding-bottom: 6px;
+    padding-left: 26px;
+    text-decoration: none;
+    @include adjust-font-size-to(16px);
+    @include bp-lte(3) {
+        @include adjust-font-size-to(14px, 1.7);
+    }
+
+    @include bp-lte(3) {
+        padding: 4px 0;
+        padding-bottom: 5px;
+        padding-left: 26px;
+    }
+
+    @include hoverActiveFocus {
+        color: $programme-list-link-hover-color;
+    }
+
+    .icon-iplayer {
+        @extend %icon;
+        display: block;
+        width: 26px;
+        margin: 0 auto;
+        font-size: 13px;
+        line-height: 26px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 3px;
+        @include bp(4) {
+            top: 8px;
+        }
+        color: $programme-list-title-play-icon-color;
+    }
+}

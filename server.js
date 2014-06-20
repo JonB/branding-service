@@ -8,6 +8,10 @@ var restify = require('restify'),
 // Create cache directories
 fs.mkdir('./images/cache', function () {});
 
+server.get(/\/fonts\/.+/, restify.serveStatic({
+  directory: __dirname
+}));
+
 server.use(restify.queryParser());
 server.use(restify.bodyParser());
 server.use(restify.jsonp());

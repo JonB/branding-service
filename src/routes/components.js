@@ -42,6 +42,8 @@ var renderMustache = function (component, config, callback) {
         html = cache.get('html:' + component + ':' + key),
         template;
 
+    delete config.theme;
+
     if (!Object.keys(config).length) {
         config = JSON.parse(
             fs.readFileSync('./components/' + component + '/config.json').toString()
@@ -72,7 +74,7 @@ exports.initialise = function(server) {
                     '<a href="' + server.router.render('component', {component: components[i]}) + '">' +
                     components[i].charAt(0).toUpperCase() + components[i].replace('-', ' ').slice(1) +
                     '</a></h2>' +
-                    renderMustache(components[i], req.query)
+                    '<div class="branding-service-wrapper">' + renderMustache(components[i], req.query) + '</div>'
                 );
             }
         };
@@ -81,7 +83,8 @@ exports.initialise = function(server) {
             fs.readFileSync('./src/index.mustache').toString(),
             {
                 content: markup.join('<hr class="branding-service" />'),
-                css: css.join()
+                css: css.join(),
+                currentUrl: req._url.pathname
             }
         );
         res.contentType = 'text/html';
@@ -100,8 +103,9 @@ exports.initialise = function(server) {
                         '<a href="' + server.router.render('component', {component: req.params.component}) + '">' +
                         req.params.component.charAt(0).toUpperCase() + req.params.component.replace('-', ' ').slice(1) +
                         '</a></h2>' +
-                        markup,
-                    css: css
+                        '<div class="branding-service-wrapper">' + markup + '</div>',
+                    css: css,
+                    currentUrl: req._url.pathname
                 }
             );
 

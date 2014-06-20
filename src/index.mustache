@@ -66,10 +66,25 @@
             border: 0;
             margin: 36px 0 0;
         }
+        .branding-service.brands {
+            position: absolute;
+            top: 0;
+            right: 36px;
+        }
+        .branding-service.brands a {
+            background: #eee;
+            display: inline-block;
+            padding: 12px;
+            font-size: 12px;
+        }
         </style>
     </head>
     <body>
         <h1 class="branding-service">TV &amp; iPlayer branding service</h1>
+        <div class="branding-service brands">
+            <a href="{{ currentUrl }}">iPlayer</a>
+            <a href="{{ currentUrl }}?theme=bbcone">BBC One</a>
+        </div>
         <div id="tviplayer">
             {{{ content }}}
 

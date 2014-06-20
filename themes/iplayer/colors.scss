@@ -1,3 +1,8 @@
+.branding-service-wrapper {
+    background-color: #262525;
+    padding: 16px;
+}
+
 $letter-list-color: white;
 $letter-list-background-color: #3B3B3B;
 $letter-list-background-color-selected: #f54997;
@@ -6,6 +11,10 @@ $letter-list-color-hover: black;
 $letter-list-background-color-hover: white;
 $letter-list-border-color: transparent;
 
+$programme-list-border-color: #404040;
+$programme-list-primary-color: #ffffff;
+$programme-list-link-hover-color: #f54997;
+$programme-list-title-play-icon-color: #f54997;
 
 $error-state-container-background: rgba(0, 0, 0, 0.7);
 $error-state-action-color: #BDBDBD;
